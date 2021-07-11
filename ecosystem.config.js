@@ -21,7 +21,7 @@ module.exports = {
       ref: 'origin/main',
       repo: 'git@github.com:troniez/express_js_pm2.git',
       path: '/home/ubuntu/express_js_pm2',
-      'post-deploy': 'npm install && pm2 reload ecosystem.config.js --env production',
+      'post-deploy': 'npm install && pm2 startOrRestart ecosystem.config.js --env production'
     }
   }
 };
