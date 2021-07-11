@@ -20,7 +20,7 @@ module.exports = {
       repo: 'git@github.com:troniez/express_js_pm2.git',
       path: '/home/ubuntu/express_js_pm2',
       'post-setup':
-        'echo \'post setup.........\'; npm install; pm2 start npm --name express_js_pm2 --interpreter bash -- start; pm2 l;',
+        'echo \'post setup.........\'; npm install; pm2 start npm --name express_js_pm2 -- start; pm2 l;',
       'post-deploy':
         'echo \'post deploy.........\'; npm install; pm2 restart express_js_pm2; pm2 l;',
     }
