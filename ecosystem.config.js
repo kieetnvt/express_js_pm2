@@ -2,9 +2,13 @@ module.exports = {
   apps: [
     {
       name: 'Express JS PM2',
+      append_env_to_name: true,
       script: 'app.js',
+      autorestart: true,
+      max_memory_restart: '1G',
       env_production: {
         NODE_ENV: 'production',
+        PORT: 3001
       },
     },
   ],
