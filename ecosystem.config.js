@@ -2,7 +2,6 @@ module.exports = {
   apps: [
     {
       name: 'Express JS PM2',
-      append_env_to_name: true,
       script: 'app.js',
       autorestart: true,
       max_memory_restart: '1G',
@@ -21,7 +20,10 @@ module.exports = {
       ref: 'origin/main',
       repo: 'git@github.com:troniez/express_js_pm2.git',
       path: '/home/ubuntu/express_js_pm2',
-      'post-deploy': 'npm install && pm2 startOrRestart ecosystem.config.js --env production'
+      'post-setup':
+        'echo \'post setup.........\'; npm install; pm2 start npm --name express_js_pm2 --interpreter bash -- start; pm2 l;',
+      'post-deploy':
+        'echo \'post deploy.........\'; npm install; pm2 restart express_js_pm2; pm2 l;',
     }
   }
 };
